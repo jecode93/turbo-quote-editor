@@ -1,0 +1,48 @@
+class QuotesController < ApplicationController # rubocop:disable Style/Documentation
+  before_action :set_quotes, only: %i[edit update show destroy]
+
+  def index
+    @quotes = Quote.all
+  end
+
+  def show; end
+
+  def new
+    @quote = Quote.new
+  end
+
+  def create
+    @quote = Quote.new(quotes_params)
+
+    if @quote.save
+      redirect_to quotes_path, notice: 'Quote was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @quote.update(quotes_params)
+      redirect_to quotes_path, notice: 'Quote was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @quote.destroy
+    redirect_to quotes_path, notice: 'Quote was successfully destroyed.'
+  end
+
+  private
+
+  def set_quotes
+    @quote = Quotes.find(params[:id])
+  end
+
+  def quotes_params
+    params.require(:quote).permit(:name)
+  end
+end
