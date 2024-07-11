@@ -39,7 +39,7 @@ class QuotesController < ApplicationController # rubocop:disable Style/Documenta
   private
 
   def set_quotes
-    @quote = Quotes.find(params[:id])
+    @quote = Quote.find(params[:id])
   end
 
   def quotes_params

@@ -1,2 +1,9 @@
-<h1>Quotes#show</h1>
-<p>Find me in app/views/quotes/show.html.erb</p>
+<%# app/views/quotes/show.html.erb %>
+<main class="container">
+  <%= link_to sanitize("&larr; Back to quotes"), quotes_path %>
+  <div class="header">
+    <h1>
+      <%= @quote.name %>
+    </h1>
+  </div>
+</main>
