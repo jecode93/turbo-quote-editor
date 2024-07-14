@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # config/initializers/simple_form.rb
 
 SimpleForm.setup do |config|
