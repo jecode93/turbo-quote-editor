@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuotesController < ApplicationController # rubocop:disable Style/Documentation
   before_action :set_quotes, only: %i[edit update show destroy]
 
