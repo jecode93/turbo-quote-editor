@@ -35,7 +35,10 @@ class QuotesController < ApplicationController # rubocop:disable Style/Documenta
 
   def destroy
     @quote.destroy
-    redirect_to quotes_path, notice: 'Quote was successfully destroyed.'
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to quotes_path, notice: 'Quote was successfully destroyed.' }
+    end
   end
 
   private
