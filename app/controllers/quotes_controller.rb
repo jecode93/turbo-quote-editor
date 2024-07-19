@@ -17,7 +17,10 @@ class QuotesController < ApplicationController # rubocop:disable Style/Documenta
     @quote = Quote.new(quotes_params)
 
     if @quote.save
-      redirect_to quotes_path, notice: 'Quote was successfully created.'
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to quotes_path, notice: 'Quote was successfully created.' }
+      end
     else
       render :new, status: :unprocessable_entity
     end
