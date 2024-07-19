@@ -4,7 +4,7 @@ class QuotesController < ApplicationController # rubocop:disable Style/Documenta
   before_action :set_quotes, only: %i[edit update show destroy]
 
   def index
-    @quotes = Quote.all
+    @quotes = Quote.ordered
   end
 
   def show; end
