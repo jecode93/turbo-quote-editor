@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # test/system/quotes_test.rb
 
 require 'application_system_test_case'
