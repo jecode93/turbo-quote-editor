@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class QuotesController < ApplicationController # rubocop:disable Style/Documentation
-  before_action :set_quotes, only: %i[edit update show destroy]
+  before_action :set_quote, only: %i[edit update show destroy]
 
   def index
-    @quotes = Quote.ordered
+    @quotes = current_company.quotes.ordered
   end
 
   def show; end
@@ -14,7 +14,7 @@ class QuotesController < ApplicationController # rubocop:disable Style/Documenta
   end
 
   def create
-    @quote = Quote.new(quotes_params)
+    @quote = current_company.quotes.build(quote_params)
 
     if @quote.save
       respond_to do |format|
@@ -46,8 +46,8 @@ class QuotesController < ApplicationController # rubocop:disable Style/Documenta
 
   private
 
-  def set_quotes
-    @quote = Quote.find(params[:id])
+  def set_quote
+    @quote = current_company.quotes.find(params[:id])
   end
 
   def quotes_params
