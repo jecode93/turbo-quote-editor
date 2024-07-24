@@ -14,7 +14,7 @@ class QuotesController < ApplicationController # rubocop:disable Style/Documenta
   end
 
   def create
-    @quote = current_company.quotes.build(quote_params)
+    @quote = current_company.quotes.build(quotes_params)
 
     if @quote.save
       respond_to do |format|
