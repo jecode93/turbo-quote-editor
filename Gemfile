@@ -74,3 +74,5 @@ end
 gem 'rubocop', '~> 1.65'
 
 gem 'simple_form', '~> 5.3'
+
+gem "devise", "~> 4.9"
