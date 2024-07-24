@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root to: 'pages#home'
   devise_for :users
-  get 'quotes/index'
-  get 'quotes/show'
-  get 'quotes/new'
-  get 'quotes/create'
-  get 'quotes/edit'
-  get 'quotes/update'
-  get 'quotes/destroy'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :quotes
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
