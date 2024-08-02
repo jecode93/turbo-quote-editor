@@ -12,12 +12,4 @@
     margin-bottom: var(--space-l);
     font-weight: bold;
   }
-  
-  &--only-child {
-    display: none;
-
-    &:only-child {
-      display: revert;
-    }
-  }
 }
