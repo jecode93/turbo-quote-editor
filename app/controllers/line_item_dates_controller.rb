@@ -1,6 +1,6 @@
 class LineItemDatesController < ApplicationController
   before_action :set_quote
-  before_action :set_line_item_date, only: %i[edit update]
+  before_action :set_line_item_date, only: %i[edit update destroy]
 
   def new
     @line_item_date = @quote.line_item_dates.build
@@ -25,6 +25,12 @@ class LineItemDatesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @line_item_date.destroy
+
+    redirect_to quote_path(@quote), notice: 'Date was successfully destroyed.'
   end
 
   private
