@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'line_item_dates/new'
+  get 'line_item_dates/create'
   root to: 'pages#home'
   devise_for :users
 
